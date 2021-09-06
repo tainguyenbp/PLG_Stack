@@ -40,6 +40,15 @@ kubectl get secret loki-logging-grafana -n loki-logging -o jsonpath="{.data.admi
 kubectl get secret loki-logging-grafana -n loki-logging -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 ```
 
+### Access the Grafana UI with NodePort
+```
+
+```
+### Access the Grafana UI with ClusterIP and Ingress
+```
+
+```
+
 # Reference: 
 ```
 https://codersociety.com/blog/articles/cloud-native-tools
