@@ -69,4 +69,5 @@ helm uninstall loki-logging -n loki-logging
 https://codersociety.com/blog/articles/cloud-native-tools
 https://codersociety.com/blog/articles/loki-kubernetes-logging
 https://codersociety.com/blog/articles/helm-best-practices
+https://aws.amazon.com/cn/blogs/china/from-elk-efk-to-plg-implement-in-eks-a-container-logging-solution-based-on-promtail-loki-grafana/
 ```
