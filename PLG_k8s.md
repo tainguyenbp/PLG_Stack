@@ -43,12 +43,16 @@ kubectl get secret loki-logging-grafana -n loki-logging -o jsonpath="{.data.admi
 ### Access the Grafana UI with NodePort
 ```
 kubectl get svc -n loki-logging 
+
 kubectl port-forward --namespace loki-logging service/loki-logging-grafana 3000:80
+
+ kubectl port-forward --namespace loki-logging service/loki-logging-grafana --address 0.0.0.0 3000:80
 ```
 ### Access the Grafana UI with ClusterIP and Ingress
 ```
 kubectl get svc -n loki-logging 
 kubectl edit svc loki-logging-grafana -n loki-logging
+
 Add config the below:
   externalIPs:
   - 192.168.10.5
