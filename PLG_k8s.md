@@ -59,6 +59,10 @@ Add config the below:
   - 192.168.10.6
   - 192.168.10.7
 ```
+### Remove config helm
+```
+helm uninstall loki-logging -n loki-logging
+```
 
 # Reference: 
 ```
