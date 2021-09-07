@@ -6,6 +6,25 @@ Promtail is an agent that needs to be installed on each node running your applic
 Loki is the heart of the PLG Stack. It is responsible to store the log data.
 Grafana is an open-source visualization platform that processes time-series data from Loki and makes the logs accessible in a web UI.
 ```
+# Install the PLG Stack with Helm 1
+### The PLG Stack (Promtail, Loki and Grafana)
+```
+kubectl create namespace loki-logging
+```
+### Add Loki Helm Chart repository:
+```
+helm repo add grafana https://grafana.github.io/helm-charts
+```
+### Run the following command to update the repository
+```
+helm repo update
+```
+
+
+
+
+# Install the PLG Stack with Helm 2
+### The PLG Stack (Promtail, Loki and Grafana)
 ### Create a Kubernetes namespace
 ```
 kubectl create namespace loki-logging
@@ -38,6 +57,8 @@ kubectl get secret loki-logging-grafana -n loki-logging -o yaml
 kubectl get secret loki-logging-grafana -n loki-logging -o jsonpath="{.data.admin-password}"
 
 kubectl get secret loki-logging-grafana -n loki-logging -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+kubectl get secret loki-grafana -n default -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 ```
 
 ### Access the Grafana UI with NodePort
@@ -46,7 +67,9 @@ kubectl get svc -n loki-logging
 
 kubectl port-forward --namespace loki-logging service/loki-logging-grafana 3000:80
 
- kubectl port-forward --namespace loki-logging service/loki-logging-grafana --address 0.0.0.0 3000:80
+kubectl port-forward --namespace loki-logging service/loki-logging-grafana --address 0.0.0.0 3000:80
+
+kubectl port-forward service/loki-grafana --address 0.0.0.0 3000:80
 ```
 ### Access the Grafana UI with ClusterIP and Ingress
 ```
@@ -70,4 +93,5 @@ https://codersociety.com/blog/articles/cloud-native-tools
 https://codersociety.com/blog/articles/loki-kubernetes-logging
 https://codersociety.com/blog/articles/helm-best-practices
 https://aws.amazon.com/cn/blogs/china/from-elk-efk-to-plg-implement-in-eks-a-container-logging-solution-based-on-promtail-loki-grafana/
+https://grafana.com/docs/loki/latest/installation/helm/
 ```
