@@ -94,4 +94,8 @@ https://codersociety.com/blog/articles/loki-kubernetes-logging
 https://codersociety.com/blog/articles/helm-best-practices
 https://aws.amazon.com/cn/blogs/china/from-elk-efk-to-plg-implement-in-eks-a-container-logging-solution-based-on-promtail-loki-grafana/
 https://grafana.com/docs/loki/latest/installation/helm/
+https://github.com/grafana/loki/tree/main/production/helm
+https://artifacthub.io/packages/helm/grafana/loki?modal=template&template=_helpers.tpl
+https://grafana.github.io/loki/charts/
+
 ```
