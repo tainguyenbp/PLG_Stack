@@ -19,8 +19,15 @@ helm repo add grafana https://grafana.github.io/helm-charts
 ```
 helm repo update
 ```
+### Deploy Loki Stack (Loki, Promtail, Grafana, Prometheus)
+```
+helm upgrade --install loki grafana/loki-stack --set grafana.enabled=true,prometheus.enabled=true,prometheus.alertmanager.persistentVolume.enabled=false,prometheus.server.persistentVolume.enabled=false
+```
 
-
+### Run the following command to update the repository
+```
+helm uninstall loki --namespace=loki
+```
 
 
 # Install the PLG Stack with Helm 2
